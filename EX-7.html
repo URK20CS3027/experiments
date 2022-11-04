@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Experiment 7</title>    
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+        <!-- jQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- External CSS Linking -->
+        
+       <script>
+        $(document).ready(function(){
+    $(document).keydown(function(event){
+        var car = $('#car')
+        var arrow = {left: 65, up: 87, right: 68, down: 83};       
+
+        function right(){
+            car.css('transform','rotate(360deg)');
+            car.animate({left:'+=5px'},1);
+
+        }
+
+        function down(){
+            car.css('transform','rotate(90deg)');
+            car.animate({top:'+=5px'},1);
+
+        }
+
+        function up(){
+            car.css('transform','rotate(270deg)');
+            car.animate({top:'-=5px'},1);
+
+        }
+
+        function left(){
+            car.css('transform','rotate(180deg)');
+            car.animate({left:'-=5px'},1);
+
+        }
+
+        function reset(){
+            car.css('transform','rotate(360deg)');            
+            car.css({
+                'top': '-607px',
+                'right' : '-380px',
+                'bottom' : '607px',
+                'left': '380px'    
+            });
+        }
+
+
+
+        if(event.which===arrow.right){
+            if(parseInt(car.css("left"))<930){
+                right();
+                
+            }
+            else{                
+                reset();
+            } 
+            
+            if(Math.abs(parseInt(car.css("top")))>=612 && Math.abs(parseInt(car.css("top")))<=662){                
+                reset();
+            }
+            if(Math.abs(parseInt(car.css("top")))>=337 && Math.abs(parseInt(car.css("top")))<=572){                
+                reset();
+            }
+            
+                        
+            
+
+        }
+        else if(event.which===arrow.down){
+            if(parseInt(car.css("left"))>=380 && parseInt(car.css("left"))<=925){
+                if(parseInt(car.css("left"))>=500 && parseInt(car.css("left"))<=660){
+                    down();
+                    
+                }
+                else{
+                    reset();
+                }
+                
+                
+            }
+            else{
+                down();
+            }
+
+            if( Math.abs(parseInt(car.css("top")))<=337){
+                reset();
+            }
+            
+            
+
+        }
+        else if(event.which===arrow.up){
+            if(parseInt(car.css("left"))>=380 && parseInt(car.css("left"))<=925){
+                if(parseInt(car.css("left"))>=500 && parseInt(car.css("left"))<=660){
+                    up();
+                    
+                }
+                else{
+                    reset();
+                }
+                
+                
+            }
+            else{
+                up();
+
+            }
+
+            if(Math.abs(parseInt(car.css("top")))>=667){
+                
+                reset();
+            }
+           
+            
+
+        }
+        else if(event.which===arrow.left){
+            if(parseInt(car.css("left"))<930){
+                left();
+                
+            }
+            else{                
+                reset();
+            } 
+            
+            if(Math.abs(parseInt(car.css("top")))>=612 && Math.abs(parseInt(car.css("top")))<=662){                
+                reset();
+            }
+            if(Math.abs(parseInt(car.css("top")))>=337 && Math.abs(parseInt(car.css("top")))<=572){                
+                reset();
+            }
+
+        }
+        
+    })
+})
+       </script>
+        <style>
+            .start{
+    width: 700px;
+    height: 140px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 88px;
+
+    
+
+
+}
+
+.finish{
+    height: 484px;
+    width: 168px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    bottom: 211px;
+    
+    
+
+
+}
+
+#car{
+    position: relative; 
+    bottom: 607px;
+    left: 380px;
+    top:-607px;
+    right:-380px;    
+}
+        </style>
+
+
+    </head>
+    <body class="">        
+        
+       
+
+        <section id="Q1">
+            <h3 class="text-white bg mt-5 pb-5"> Car Animation with jQuery</h3>
+            <div>
+                <img src="C:\Users\91733\Downloads\1race.webp" class="start" alt="track-img">
+                <img src="C:\Users\91733\Downloads\2race.webp" class="finish" alt="track-img">
+                <img id="car" class="m-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK1U1UgHL4hkVLzMkYDGT74iAFochryHfntA&usqp=CAU" height="50" width="160" alt="car-img">                
+            </div>            
+        </section>
+        
+    </body>
+</html>
